@@ -1,0 +1,10 @@
+<div class="large-4 cell" style="text-align: center;">
+    <div class="callout">
+        <h1><?php echo $red->ime ?>
+        <br /> <?php echo $red->prezime ?></h1>
+        <?php echo $red->email ?>
+        <hr />
+        <a href="/operater/promjena?sifra=<?php echo $red->sifra ?>"><i title="Promjeni" class="fas fa-edit fa-2x"></i></a> 
+        <a href="/operater/obrisi?sifra=<?php echo $red->sifra ?>"><i title="Obriši" class="fas fa-trash fa-2x" style="color: red;"></i></a>
+    </div>
+</div>

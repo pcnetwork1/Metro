@@ -1,0 +1,19 @@
+<tr>
+    <td title="naziv">
+    <i class="fas fa-certificate" <?php 
+    if(!$red->verificiran){
+        echo 'style="color: gray" title="NIJE VERIFICIRAN"';
+    }else{
+        echo 'title="VERIFICIRAN"';
+    }
+    ?>></i>
+    
+    <span style="font-size: 1.4em;"><?php echo $red->naziv?></span></td>
+    <td style="text-align: right;" title="broj sati"><?php echo $red->trajanje?></td>
+    <td style="text-align: right;" title="cijena"><?php echo $red->cijena?></td>
+    <td style="text-align: right;" title="upisnina"><?php echo $red->upisnina?></td>
+    <td>
+        <a href="/operater/promjena?sifra=<?php echo $red->sifra?>"><i title="Promjeni" class="fas fa-edit fa-2x"></i></a> 
+        <a href="/operater/obrisi?sifra=<?php echo $red->sifra?>"><i title="Obriši" class="fas fa-trash fa-2x" style="color: red;"></i></a>
+    </td>
+</tr>

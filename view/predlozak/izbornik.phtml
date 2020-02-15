@@ -1,0 +1,47 @@
+<!-- Početak izbornik -->
+<div class="title-bar" data-responsive-toggle="example-animated-menu" data-hide-for="medium">
+<button class="menu-icon" type="button" data-toggle></button>
+<div class="title-bar-title"><?php echo APP::config('nazivAPP'); ?></div>
+</div>
+<div class="top-bar" id="example-animated-menu" data-animate="hinge-in-from-top spin-out">
+    <div class="top-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+            <li class="menu-text show-for-large">
+            <?php echo APP::config('nazivAPP'); ?>
+            </li>
+            <li><a href="/">Početna</a></li>
+            <?php if(isset($_SESSION['operater'])):?>
+                <li><a href="/nadzornaploca/index">Nadzorna ploča</a></li>
+                <li>
+                    <a href="#">Programi</a>
+                    <ul class="vertical menu">
+                        <li><a href="/smjer/index">Smjerovi</a></li>
+                        <li><a href="/grupa/index">Grupe</a></li>
+                        <li><a href="/polaznik/index">Polaznici</a></li>
+                        <li><a href="/predavac/index">Predavači</a></li>
+                    </ul>
+                </li>
+                <?php if(isset($_SESSION['operater']) && $_SESSION['operater']->uloga==='admin'):?>
+                    <li><a href="/operater/index">Operateri</a></li>
+                <?php else:?>
+                    <li><a href="/nadzornaploca/profil">Profil</a></li>
+                <?php endif;?>
+            <?php endif;?>
+            <li><a href="/index/onama">O nama</a></li>
+        </ul>
+    </div>
+    <div class="top-bar-right">
+        <ul class="menu">
+            <li>
+            <?php if(!isset($_SESSION['operater'])): ?>
+                <a href="/index/prijava">Prijava</a>
+            <?php else:?>
+                <a href="/index/odjava">Odjavi 
+                <?php echo $_SESSION['operater']->ime . 
+                ' ' . $_SESSION['operater']->prezime; ?></a>
+            <?php endif;?>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- Kraj izbornik -->

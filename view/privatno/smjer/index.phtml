@@ -1,0 +1,20 @@
+<a class="success button expanded" href="#">Dodaj novi smjer</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>Naziv</th>
+            <th>Broj sati</th>
+            <th>Cijena</th>
+            <th>Upisnina</th>
+            <th>Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php 
+        foreach($podaci as $red){
+            include 'tablicaStavka.phtml';
+        }
+        ?>
+    </tbody>
+</table>
