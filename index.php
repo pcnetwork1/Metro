@@ -1,7 +1,6 @@
 <?php
 session_start();
-//echo __DIR__;
-// definiram basepath - apsolutnu putanju mog direktorija
+
 define("BP",__DIR__ . DIRECTORY_SEPARATOR );
 //echo BP;
 //echo BP;

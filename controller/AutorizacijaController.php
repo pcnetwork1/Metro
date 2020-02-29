@@ -9,7 +9,7 @@ class AutorizacijaController extends Controller
         if(!isset($_SESSION['operater'])){
             $this->view->render('prijava',[
                 'poruka'=>'Morate se prijaviti',
-                'AdminID'=>''
+                'email'=>''
             ]);
             exit;
         }

@@ -1,11 +1,14 @@
-<form class="log-in-form" method="POST"
-action="/index/autorizacija">
- <label>Email
-    <input type="email" id="email" name="email" value="<?php echo $email ?>">
-  </label>
-  <label>Password
-    <input type="password" id="lozinka" name="lozinka">
-  </label>
-  <p><input type="submit" class="button expanded" value="Log in"></input></p>
-</form>
-<?php echo $poruka; ?>
+<div class="container">
+
+<div class="text-left">
+ <form action="/index/prijavak">
+ <button class="button expanded">Korisnik</button>
+ </form>
+ </div>
+
+ <div class="text-right">
+ <form action="/index/admin/">
+ <button class="button expanded">Administrator</button>
+ </form>
+ </div>
+</div>

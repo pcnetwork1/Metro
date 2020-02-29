@@ -1,37 +1,8 @@
-<a class="success button expanded" href="#">Dodaj novog operatera</a>
-<ul style="list-style-type: none; font-size: 2em;">
-    <?php 
+<pre>
+<?php 
     foreach($podaci as $red){
-        include 'listStavka.phtml';
+        echo $red->sifra;
+        echo '------' ;
     }
-    ?>
-</ul>
-
-<hr />
-
-<table>
-    <thead>
-        <tr>
-            <th>Ime i prezime</th>
-            <th>email</th>
-            <th>Akcija</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php 
-        foreach($podaci as $red){
-            include 'tablicaStavka.phtml';
-        }
-        ?>
-    </tbody>
-</table>
-
-<hr />
-
-<div class="grid-x grid-margin-x">
-    <?php 
-        foreach($podaci as $red){
-            include 'gridStavka.phtml';
-        }
-        ?>
-</div>
+ ?>
+</pre>
