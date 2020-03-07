@@ -1,17 +1,27 @@
 <?php
 
-class OperaterController extends AdminController
+class PolaznikController extends AutorizacijaController
 {
 
     private $viewDir = 'privatno' . 
-    DIRECTORY_SEPARATOR . 'operater' .
+    DIRECTORY_SEPARATOR . 'polaznik' .
     DIRECTORY_SEPARATOR;
+
+
+    public function trazi()
+    {
+        $this->view->render($this->viewDir . 'index',[
+            'podaci'=>Polaznik::trazi($_GET['uvjet'])
+           ]);
+    }
 
     public function index()
     {
         $this->view->render($this->viewDir . 'index',[
-         'podaci'=>Operater::readAll()
-     ]);
+         'podaci'=>Polaznik::readAll()
+        ]);
+        
+     
     }
 
     public function novi()
@@ -21,34 +31,34 @@ class OperaterController extends AdminController
         );
     }
 
+
     public function dodajnovi()
     {
         //prvo dođu sve silne kontrole
-        Operater::create();
+        Polaznik::create();
         $this->index();
     }
-
-   
 
     public function obrisi()
     {
         //prvo dođu silne kontrole
-        if(Operater::delete()){
-            header('location: /operater/index');
+        if(Polaznik::delete()){
+            header('location: /polaznik/index');
         }
         
     }
 
+
     public function promjena()
     {
-        $operater = Operater::read($_GET['sifra']);
-        if(!$operater){
+        $polaznik = Polaznik::read($_GET['sifra']);
+        if(!$polaznik){
             $this->index();
             exit;
         }
 
         $this->view->render($this->viewDir . 'promjena',
-            ['operater'=>$operater,
+            ['polaznik'=>$polaznik,
                 'poruka'=>'Promjenite željene podatke']
         );
      
@@ -57,7 +67,8 @@ class OperaterController extends AdminController
     public function promjeni()
     {
         // I OVDJE DOĐU SILNE KONTROLE
-        Operater::update();
-        header('location: /operater/index');
+        Polaznik::update();
+        header('location: /polaznik/index');
     }
+
 }

@@ -1,0 +1,36 @@
+<form class="log-in-form" method="POST"
+action="/polaznik/dodajnovi">
+ <label>Ime
+    <input type="text" id="ime" name="ime" value="">
+  </label>
+  
+  <label>Prezime
+    <input type="text" id="prezime" name="prezime" value="">
+  </label>
+
+  <label>Email
+    <input type="email" id="email" name="email" value="">
+  </label>
+
+  <label>OIB
+    <input type="text" id="oib" name="oib" value="">
+  </label>
+
+  <label>Broj ugovora
+    <input type="text" id="brojugovora" name="brojugovora" value="">
+  </label>
+
+
+
+  <div class="grid-x grid-margin-x">
+    <div class="large-6 cell">
+      <a href="/polaznik/index" 
+      class="alert button expanded">Odustani</a>
+    </div>
+    <div class="large-6 cell">
+      <input type="submit" class="button expanded" 
+      value="Dodaj polaznika"></input>
+    </div>
+  </div>
+</form>
+<?php echo $poruka; ?>

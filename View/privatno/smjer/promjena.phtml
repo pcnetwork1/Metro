@@ -1,0 +1,52 @@
+<form class="log-in-form" method="POST"
+action="/smjer/promjeni">
+ <label>Naziv
+    <input type="text" id="naziv" name="naziv" value="<?php 
+    echo $smjer->naziv;
+    ?>">
+  </label>
+  
+  <label>Trajanje
+    <input type="text" id="trajanje" name="trajanje" value="<?php 
+    echo $smjer->trajanje;
+    ?>">
+  </label>
+
+  <label>Cijena
+    <input type="text" id="cijena" name="cijena" value="<?php 
+    echo $smjer->cijena;
+    ?>">
+  </label>
+
+  <label>Upisnina
+    <input type="text" id="upisnina" name="upisnina" value="<?php 
+    echo $smjer->upisnina;
+    ?>">
+  </label>
+
+  <label for="verificiran">Verificiran</label>
+  <select name="verificiran" id="verificiran">
+    <option <?php 
+    if($smjer->verificiran){
+      echo ' selected="selected" ';
+    }
+    ?> value="1">DA</option>
+    <option <?php 
+    if(!$smjer->verificiran){
+      echo ' selected="selected" ';
+    }
+    ?> value="0">NE</option>
+  </select>
+
+  <div class="grid-x grid-margin-x">
+    <div class="large-6 cell">
+      <a href="/smjer/index" class="alert button expanded">Odustani</a>
+    </div>
+    <div class="large-6 cell">
+      <input type="submit" class="button expanded" value="Promjeni smjer"></input>
+    </div>
+  </div>
+  <input type="hidden" name="sifra" 
+  value="<?php echo $smjer->sifra ?>">
+</form>
+<?php echo $poruka; ?>

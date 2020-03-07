@@ -4,7 +4,7 @@ class View
 {
     private $layout;
 
-    public function __construct($layout='predlozak')
+    public function __construct($layout='Stranice')
     {
      $this->layout=$layout;   
     }

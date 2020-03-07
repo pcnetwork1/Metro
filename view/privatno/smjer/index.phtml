@@ -1,9 +1,20 @@
-<?php 
-    for($i=0;$i<count($podaci);$i++){
-        echo $podaci[$i]->naziv . '<br />';
-    }
-    echo '<hr />';
-    foreach($podaci as $p){
-        echo $p->naziv . '<br />';
-    }
- ?>
+<a class="success button expanded" href="/smjer/novi">Dodaj novi smjer</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>Naziv</th>
+            <th>Broj sati</th>
+            <th>Cijena</th>
+            <th>Upisnina</th>
+            <th>Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php 
+        foreach($podaci as $red){
+            include 'red.phtml';
+        }
+        ?>
+    </tbody>
+</table>

@@ -1,0 +1,25 @@
+<div class="grid-x grid-margin-x">
+    <div class="large-8 cell">
+        <form action="/polaznik/trazi" method="get">
+            <input type="text" name="uvjet" 
+            id="uvjet"
+            placeholder="Unesi dio imena, prezimena ili OIB-a"
+            value="<?php echo isset($_GET['uvjet']) ? $_GET['uvjet'] : '' ?>">
+        </form>
+    </div>
+    <div class="large-4 cell">
+        <a class="success button expanded" 
+            href="/polaznik/novi"
+            style="border: 0px;">
+            Dodaj novog polaznika</a>
+    </div>
+</div>
+
+
+<div class="grid-x grid-margin-x">
+    <?php 
+        foreach($podaci as $red){
+            include 'stavka.phtml';
+        }
+        ?>
+</div>

@@ -1,0 +1,51 @@
+<form class="log-in-form" method="POST"
+action="/predavac/promjeni">
+ <label>Ime
+    <input type="text" id="ime" name="ime" value="<?php 
+    echo $predavac->ime;
+    ?>">
+  </label>
+  
+  <label>Prezime
+    <input type="text" id="prezime" name="prezime" 
+    value="<?php 
+    echo $predavac->prezime;
+    ?>">
+  </label>
+
+  <label>Email
+    <input type="email" id="email" name="email" ,
+    value="<?php 
+    echo $predavac->email;
+    ?>">
+  </label>
+
+  <label>OIB
+    <input type="text" id="oib" name="oib" value="<?php 
+    echo $predavac->oib;
+    ?>">
+  </label>
+
+  <label>IBAN
+    <input type="text" id="iban" 
+    name="iban" value="<?php 
+    echo $predavac->iban;
+    ?>">
+  </label>
+
+
+
+  <div class="grid-x grid-margin-x">
+    <div class="large-6 cell">
+      <a href="/predavac/index" 
+      class="alert button expanded">Odustani</a>
+    </div>
+    <div class="large-6 cell">
+      <input type="submit" class="button expanded" 
+      value="Promjeni predavača"></input>
+    </div>
+  </div>
+  <input type="hidden" name="sifra" 
+  value="<?php echo $predavac->sifra ?>">
+</form>
+<?php echo $poruka; ?>

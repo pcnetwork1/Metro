@@ -1,0 +1,26 @@
+<div class="large-4 cell" style="text-align: center;">
+    <div class="callout">
+        <h1><?php echo $red->ime ?>
+        <br /> <?php echo $red->prezime ?></h1>
+        <?php echo $red->email ?><br />
+        <?php echo $red->oib ?>
+        <br />
+        <?php echo $red->brojugovora ?>
+        <hr />
+        <a href="/polaznik/promjena?sifra=<?php echo $red->sifra ?>">
+        <i title="Promjeni" class="fas fa-edit fa-2x"></i></a> 
+        
+        <?php if($red->ukupno==0): ?>
+        <a onclick="return confirm('Sigurno obrisati <?php 
+        echo $red->ime . ' ' . $red->prezime ?> ');" 
+        href="/polaznik/obrisi?sifra=<?php echo $red->sifra ?>">
+        <i title="Obriši" class="fas fa-trash fa-2x" style="color: red;"></i></a>
+        <?php else:?>
+
+        <i title="Ne može se obrisati jer je polaznik član jedne ili više grupa" class="fas fa-trash fa-2x" style="color: gray;"></i>
+
+        <?php endif;?>
+
+
+    </div>
+</div>

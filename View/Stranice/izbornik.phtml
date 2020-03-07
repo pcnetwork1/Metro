@@ -1,0 +1,31 @@
+<!-- Početak izbornik -->
+<div class="title-bar" data-responsive-toggle="example-animated-menu" data-hide-for="medium">
+<button class="menu-icon" type="button" data-toggle></button>
+<div class="title-bar-title"><?php echo APP::config('nazivAPP'); ?></div>
+</div>
+<div class="top-bar" id="example-animated-menu" data-animate="hinge-in-from-top spin-out">
+    <div class="top-bar-left">
+    <ul class="vertical medium-horizontal menu">
+  <li><a href="/"><i class="fi-list"></i> <span>Pocetna</span></a></li>
+  <li><a href="/index/info"><i class="fi-list"></i> <span>Info</span></a></li>
+  <li><a href="/index/kontakt"><i class="fi-list"></i> <span>Kontakt</span></a></li>
+</ul>
+    </div>
+    <div class="top-bar-right">
+        <ul class="menu">
+            <li>
+            <?php if(!isset($_SESSION['djelatnik'])): ?>
+                <a href="/index/prijava">Prijava</a>
+            <?php else:?>
+                <a href="/index/odjava">Odjavi 
+                <?php echo $_SESSION['djelatnik']->ime . 
+                ' ' . $_SESSION['djelatnik']->prezime; ?></a>
+            <?php endif;?>
+            </li>
+            <li>
+                <a href="/index/registracija">Registriraj se</a>
+                </li>
+        </ul>
+    </div>
+</div>
+<!-- Kraj izbornik -->

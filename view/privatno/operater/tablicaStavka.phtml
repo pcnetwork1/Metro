@@ -1,8 +1,9 @@
 <tr>
     <td><?php echo $red->ime . ' ' . $red->prezime?></td>
     <td><?php echo $red->email?></td>
+    <td><?php echo $red->aktivan?></td>
     <td>
         <a href="/operater/promjena?sifra=<?php echo $red->sifra?>"><i title="Promjeni" class="fas fa-edit fa-2x"></i></a> 
-        <a href="/operater/obrisi?sifra=<?php echo $red->sifra?>"><i title="Obriši" class="fas fa-trash fa-2x" style="color: red;"></i></a>
+        <a onclick="return confirm('Sigurno obrisati <?php echo $red->ime . ' ' . $red->prezime ?> ');" href="/operater/obrisi?sifra=<?php echo $red->sifra?>"><i title="Obriši" class="fas fa-trash fa-2x" style="color: red;"></i></a>
     </td>
 </tr>

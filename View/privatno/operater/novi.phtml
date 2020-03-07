@@ -1,0 +1,45 @@
+<form class="log-in-form" method="POST"
+action="/operater/dodajnovi">
+ <label>Email
+    <input type="email" id="email" name="email" value="<?php 
+    echo isset($_POST['email']) ? $_POST['email'] : '' 
+    ?>">
+  </label>
+
+  <label>Password
+    <input type="password" id="lozinka" name="lozinka">
+  </label>
+
+  <label>Password ponovo
+    <input type="password" id="lozinkaponovo" name="lozinkaponovo">
+  </label>
+
+  <label>Ime
+    <input type="text" id="ime" name="ime" value="<?php 
+    echo isset($_POST['ime']) ? $_POST['ime'] : '' 
+    ?>">
+  </label>
+
+  <label>Prezime
+    <input type="text" id="prezime" name="prezime" value="<?php 
+    echo isset($_POST['prezime']) ? $_POST['prezime'] : '' 
+    ?>">
+  </label>
+
+  <label for="uloga">Uloga</label>
+  <select name="uloga" id="uloga">
+    <option value="oper">Operater</option>
+    <option value="admin">Administrator</option>
+  </select>
+
+  <div class="grid-x grid-margin-x">
+    <div class="large-6 cell">
+      <a href="/operater/index" class="alert button expanded">Odustani</a>
+    </div>
+    <div class="large-6 cell">
+      <input type="submit" class="button expanded" value="Dodaj operatera"></input>
+    </div>
+  </div>
+  
+</form>
+<?php echo $poruka; ?>

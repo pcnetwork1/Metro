@@ -1,17 +1,19 @@
 <?php
 
-class OperaterController extends AdminController
+class PredavacController extends AutorizacijaController
 {
 
     private $viewDir = 'privatno' . 
-    DIRECTORY_SEPARATOR . 'operater' .
+    DIRECTORY_SEPARATOR . 'predavac' .
     DIRECTORY_SEPARATOR;
 
     public function index()
     {
         $this->view->render($this->viewDir . 'index',[
-         'podaci'=>Operater::readAll()
-     ]);
+         'podaci'=>Predavac::readAll()
+        ]);
+        
+     
     }
 
     public function novi()
@@ -21,34 +23,34 @@ class OperaterController extends AdminController
         );
     }
 
+
     public function dodajnovi()
     {
         //prvo dođu sve silne kontrole
-        Operater::create();
+        Predavac::create();
         $this->index();
     }
-
-   
 
     public function obrisi()
     {
         //prvo dođu silne kontrole
-        if(Operater::delete()){
-            header('location: /operater/index');
+        if(Predavac::delete()){
+            header('location: /predavac/index');
         }
         
     }
 
+
     public function promjena()
     {
-        $operater = Operater::read($_GET['sifra']);
-        if(!$operater){
+        $predavac = Predavac::read($_GET['sifra']);
+        if(!$predavac){
             $this->index();
             exit;
         }
 
         $this->view->render($this->viewDir . 'promjena',
-            ['operater'=>$operater,
+            ['predavac'=>$predavac,
                 'poruka'=>'Promjenite željene podatke']
         );
      
@@ -57,7 +59,8 @@ class OperaterController extends AdminController
     public function promjeni()
     {
         // I OVDJE DOĐU SILNE KONTROLE
-        Operater::update();
-        header('location: /operater/index');
+        Predavac::update();
+        header('location: /predavac/index');
     }
+
 }

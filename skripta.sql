@@ -18,7 +18,7 @@ create table racun(
     kupac int not null,
     vrijemekupnje datetime,
     nacinplacanja varchar(20),
-    djelatnik int not null,
+    operater int not null,
     brojracuna varchar(50)
 );
 
@@ -36,21 +36,22 @@ create table proizvod(
 );
 
 
-create table djelatnik(
-    id int primary key auto_increment,
-    ime varchar(20) not null,
-    prezime varchar(20) not null,
-    lozinka varchar(60) not null,
-    email varchar (50) not null,
-    iban varchar(34),
-    brojmobitela char(15),
-    menadzer boolean 
-
+create table operater(
+id          int primary key auto_increment,
+email       varchar(50) not null,
+lozinka     char(60) not null,
+ime         varchar(50) not null,
+prezime     varchar(50) not null,
+uloga       varchar(20) not null,
+aktivan     boolean not null default false,
+sessionid   varchar(100)
 );
+	
+
 
 
 
 alter table racun add foreign key (kupac) references kupac(id);
-alter table racun add foreign key (djelatnik) references djelatnik(id);
+alter table racun add foreign key (operater) references operater(id);
 alter table stavka add foreign key (racun) references racun(id);
 alter table stavka add foreign key (proizvod) references proizvod(id);

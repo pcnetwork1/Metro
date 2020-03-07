@@ -82,6 +82,13 @@ class IndexController extends Controller
         $this->view->render('onama');
     }
 
+    public function error404()
+    {
+
+        $this->view->render('error404');
+
+    }
+
     public function prijava()
     {
         $this->view->render('prijava');
@@ -156,5 +163,15 @@ class IndexController extends Controller
         $_SESSION['operater']=$rezultat;
         $npc = new NadzornaplocaController();
         $npc->index();
+    }
+
+    public function Info()
+    {
+        $this->view->render('Info');
+    }
+
+    public function kontakt()
+    {
+        $this->view->render('kontakt');
     }
 }

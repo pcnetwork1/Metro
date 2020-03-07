@@ -11,6 +11,7 @@ class DB extends PDO
         parent::__construct($dsn,$db['korisnik'],$db['lozinka']);
 
         $this->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+        $this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     }
 

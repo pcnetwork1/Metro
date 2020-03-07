@@ -1,0 +1,31 @@
+<form class="log-in-form" method="POST"
+action="/index/registrirajnovi">
+ <label>Email
+    <input type="email" id="email" name="email" value="<?php 
+    echo isset($_POST['email']) ? $_POST['email'] : '' 
+    ?>">
+  </label>
+
+  <label>Password
+    <input type="password" id="lozinka" name="lozinka">
+  </label>
+
+  <label>Password ponovo
+    <input type="password" id="lozinkaponovo" name="lozinkaponovo">
+  </label>
+
+  <label>Ime
+    <input type="text" id="ime" name="ime" value="<?php 
+    echo isset($_POST['ime']) ? $_POST['ime'] : '' 
+    ?>">
+  </label>
+
+  <label>Prezime
+    <input type="text" id="prezime" name="prezime" value="<?php 
+    echo isset($_POST['prezime']) ? $_POST['prezime'] : '' 
+    ?>">
+  </label>
+
+  <input type="submit" class="button expanded" value="Registriraj se"></input>
+  
+</form>

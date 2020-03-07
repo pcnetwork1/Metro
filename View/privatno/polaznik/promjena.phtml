@@ -1,0 +1,51 @@
+<form class="log-in-form" method="POST"
+action="/polaznik/promjeni">
+ <label>Ime
+    <input type="text" id="ime" name="ime" value="<?php 
+    echo $polaznik->ime;
+    ?>">
+  </label>
+  
+  <label>Prezime
+    <input type="text" id="prezime" name="prezime" 
+    value="<?php 
+    echo $polaznik->prezime;
+    ?>">
+  </label>
+
+  <label>Email
+    <input type="email" id="email" name="email" ,
+    value="<?php 
+    echo $polaznik->email;
+    ?>">
+  </label>
+
+  <label>OIB
+    <input type="text" id="oib" name="oib" value="<?php 
+    echo $polaznik->oib;
+    ?>">
+  </label>
+
+  <label>Broj ugovora
+    <input type="text" id="brojugovora" 
+    name="brojugovora" value="<?php 
+    echo $polaznik->brojugovora;
+    ?>">
+  </label>
+
+
+
+  <div class="grid-x grid-margin-x">
+    <div class="large-6 cell">
+      <a href="/polaznik/index" 
+      class="alert button expanded">Odustani</a>
+    </div>
+    <div class="large-6 cell">
+      <input type="submit" class="button expanded" 
+      value="Promjeni polaznika"></input>
+    </div>
+  </div>
+  <input type="hidden" name="sifra" 
+  value="<?php echo $polaznik->sifra ?>">
+</form>
+<?php echo $poruka; ?>

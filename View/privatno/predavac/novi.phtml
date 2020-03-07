@@ -1,0 +1,36 @@
+<form class="log-in-form" method="POST"
+action="/predavac/dodajnovi">
+ <label>Ime
+    <input type="text" id="ime" name="ime" value="">
+  </label>
+  
+  <label>Prezime
+    <input type="text" id="prezime" name="prezime" value="">
+  </label>
+
+  <label>Email
+    <input type="email" id="email" name="email" value="">
+  </label>
+
+  <label>OIB
+    <input type="text" id="oib" name="oib" value="">
+  </label>
+
+  <label>Iban
+    <input type="text" id="iban" name="iban" value="">
+  </label>
+
+
+
+  <div class="grid-x grid-margin-x">
+    <div class="large-6 cell">
+      <a href="/predavac/index" 
+      class="alert button expanded">Odustani</a>
+    </div>
+    <div class="large-6 cell">
+      <input type="submit" class="button expanded" 
+      value="Dodaj predavača"></input>
+    </div>
+  </div>
+</form>
+<?php echo $poruka; ?>

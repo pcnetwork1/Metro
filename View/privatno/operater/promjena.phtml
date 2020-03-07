@@ -1,0 +1,46 @@
+<form class="log-in-form" method="POST"
+action="/operater/promjeni">
+ <label>Email
+    <input type="email" id="email" name="email" value="<?php 
+    echo $operater->email;
+    ?>">
+  </label>
+  
+  <label>Ime
+    <input type="text" id="ime" name="ime" value="<?php 
+    echo $operater->ime;
+    ?>">
+  </label>
+
+  <label>Prezime
+    <input type="text" id="prezime" name="prezime" value="<?php 
+    echo $operater->prezime;
+    ?>">
+  </label>
+
+  <label for="uloga">Uloga</label>
+  <select name="uloga" id="uloga">
+    <option <?php 
+    if($operater->uloga==='oper'){
+      echo ' selected="selected" ';
+    }
+    ?> value="oper">Operater</option>
+    <option <?php 
+    if($operater->uloga==='admin'){
+      echo ' selected="selected" ';
+    }
+    ?> value="admin">Administrator</option>
+  </select>
+
+  <div class="grid-x grid-margin-x">
+    <div class="large-6 cell">
+      <a href="/operater/index" class="alert button expanded">Odustani</a>
+    </div>
+    <div class="large-6 cell">
+      <input type="submit" class="button expanded" value="Promjeni operatera"></input>
+    </div>
+  </div>
+  <input type="hidden" name="sifra" 
+  value="<?php echo $operater->sifra ?>">
+</form>
+<?php echo $poruka; ?>
