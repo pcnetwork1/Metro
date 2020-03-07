@@ -5,19 +5,19 @@ class Operater
     public static function readAll()
     {
         $veza = DB::getInstanca();
-        $izraz = $veza->prepare('select sifra, 
-        ime, prezime, uloga, email, aktivan from operater where sifra>1');
+        $izraz = $veza->prepare('select id, 
+        ime, prezime, uloga, email, aktivan from operater where id>1');
         $izraz->execute();
         return $izraz->fetchAll();
     }
 
-    public static function read($sifra)
+    public static function read($id)
     {
         $veza = DB::getInstanca();
-        $izraz = $veza->prepare('select sifra, 
+        $izraz = $veza->prepare('select id, 
         ime, prezime, uloga, email from operater
-        where sifra=:sifra');
-        $izraz->execute(['sifra'=>$sifra]);
+        where id=:id');
+        $izraz->execute(['id'=>$id]);
         return $izraz->fetch();
     }
 
@@ -72,7 +72,7 @@ class Operater
     {
         try{
             $veza = DB::getInstanca();
-            $izraz=$veza->prepare('delete from operater where sifra=:sifra');
+            $izraz=$veza->prepare('delete from operater where id=:id');
             $izraz->execute($_GET);
         }catch(PDOException $e){
             echo $e->getMessage();
@@ -85,7 +85,7 @@ class Operater
         $veza = DB::getInstanca();
         $izraz=$veza->prepare('update operater 
         set email=:email,ime=:ime,
-        prezime=:prezime,uloga=:uloga where sifra=:sifra');
+        prezime=:prezime,uloga=:uloga where id=:id');
         $izraz->execute($_POST);
     }
 

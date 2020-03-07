@@ -5,26 +5,48 @@
 </div>
 <div class="top-bar" id="example-animated-menu" data-animate="hinge-in-from-top spin-out">
     <div class="top-bar-left">
-    <ul class="vertical medium-horizontal menu">
-  <li><a href="/"><i class="fi-list"></i> <span>Pocetna</span></a></li>
-  <li><a href="/index/info"><i class="fi-list"></i> <span>Info</span></a></li>
-  <li><a href="/index/kontakt"><i class="fi-list"></i> <span>Kontakt</span></a></li>
-</ul>
+        <ul class="dropdown menu" data-dropdown-menu>
+            <li class="menu-text show-for-large">
+            <?php echo APP::config('nazivAPP'); ?>
+            </li>
+                    <li><a href="/">Početna</a></li>
+                    <li><a href="/index/info"><i class="fi-list"></i> <span>Info</span></a></li>
+                    <li><a href="/index/kontakt"><i class="fi-list"></i> <span>Kontakt</span></a></li>
+                    <li><a href="/index/Katalog"><i class="fi-list"></i> <span>Katalog</span></a></li>
+                    <li><a href="/index/Test1"><i class="fi-list"></i> <span>Test</span></a></li>
+                    <?php if(isset($_SESSION['operater'])):?>
+                <li><a href="/nadzornaploca/index">Nadzorna ploča</a></li>
+                
+                <?php if(isset($_SESSION['operater']) && $_SESSION['operater']->uloga==='admin'):?>
+                    <li><a href="/operater/index">Operateri</a></li>
+                <?php else:?>
+                    <li><a href="/nadzornaploca/profil">Profil</a></li>
+                <?php endif;?>
+            <?php endif;?>
+            
+        </ul>
     </div>
     <div class="top-bar-right">
         <ul class="menu">
-            <li>
-            <?php if(!isset($_SESSION['djelatnik'])): ?>
+           
+            <?php if(!isset($_SESSION['operater'])): ?>
+                <li>
                 <a href="/index/prijava">Prijava</a>
-            <?php else:?>
-                <a href="/index/odjava">Odjavi 
-                <?php echo $_SESSION['djelatnik']->ime . 
-                ' ' . $_SESSION['djelatnik']->prezime; ?></a>
-            <?php endif;?>
-            </li>
-            <li>
-                <a href="/index/registracija">Registriraj se</a>
                 </li>
+                <li>
+                <a href="/index/gost">Gost</a>
+                </li>
+                <li>
+                <a href="/index/registracija">Novi korisnik</a>
+                </li>
+            <?php else:?>
+                <li>
+                <a href="/index/odjava">Odjavi 
+                <?php echo $_SESSION['operater']->ime . 
+                ' ' . $_SESSION['operater']->prezime; ?></a>
+                </li>
+            <?php endif;?>
+           
         </ul>
     </div>
 </div>

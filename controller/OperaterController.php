@@ -41,7 +41,7 @@ class OperaterController extends AdminController
 
     public function promjena()
     {
-        $operater = Operater::read($_GET['sifra']);
+        $operater = Operater::read($_GET['id']);
         if(!$operater){
             $this->index();
             exit;

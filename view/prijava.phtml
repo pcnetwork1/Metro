@@ -1,11 +1,17 @@
-<form class="log-in-form" method="POST"
-action="/index/autorizacija">
- <label>Email
-    <input type="email" id="email" name="email" value="<?php echo $email ?>">
-  </label>
-  <label>Password
-    <input type="password" id="lozinka" name="lozinka">
-  </label>
-  <p><input type="submit" class="button expanded" value="Log in"></input></p>
+
+<form action='/index/autorizacija' method='POST' accept-charset='UTF-8'>
+<fieldset >
+<legend>Prijava - <?php $poruka; ?></legend>
+
+<label for='username' >Email*:</label>
+<input type='email' name='email' id='email' value="<?php echo $email ?>"  maxlength="50" />
+
+<label for='password' >Lozinka*:</label>
+<input type='password' name='lozinka' id='lozinka' maxlength="50" />
+
+<input type='submit' name='Submit' class="button expanded" value='Log in' />
+
+</fieldset>
 </form>
-<?php echo $poruka; ?>
+
+<?php $poruka; ?>

@@ -3,9 +3,9 @@
 class IndexController extends Controller
 {
 
-    public function prijavak()
+    public function prijava()
     {
-        $this->view->render('prijavak',[
+        $this->view->render('prijava',[
             'poruka'=>'Unesite pristupne podatke',
             'email'=>''
         ]);
@@ -15,7 +15,7 @@ class IndexController extends Controller
     {
         if(!isset($_POST['email']) || 
         !isset($_POST['lozinka'])){
-            $this->view->render('prijavak',[
+            $this->view->render('prijava',[
                 'poruka'=>'Nisu postavljeni pristupni podaci',
                 'email' =>''
             ]);
@@ -24,14 +24,14 @@ class IndexController extends Controller
 
         if(trim($_POST['email'])==='' || 
         trim($_POST['lozinka'])===''){
-            $this->view->render('prijavak',[
+            $this->view->render('prijava',[
                 'poruka'=>'Pristupni podaci obavezno',
                 'email'=>$_POST['email']
             ]);
             return;
         }
         $veza = DB::getInstanca();
-        $izraz = $veza->prepare('select * from kupac 
+        $izraz = $veza->prepare('select * from operater 
                       where email=:email;');
         $izraz->execute(['email'=>$_POST['email']]);
         //$rezultat=$izraz->fetch(PDO::FETCH_OBJ);
@@ -45,7 +45,7 @@ class IndexController extends Controller
         }
 
         if(!password_verify($_POST['lozinka'],$rezultat->lozinka)){
-            $this->view->render('prijavak',[
+            $this->view->render('prijava',[
                 'poruka'=>'Neispravna kombinacija email i lozinka',
                 'email'=>$_POST['email']
             ]);
@@ -89,10 +89,7 @@ class IndexController extends Controller
 
     }
 
-    public function prijava()
-    {
-        $this->view->render('prijava');
-    }
+
 
     public function json()
     {
@@ -119,52 +116,6 @@ class IndexController extends Controller
         ]);
     }
 
-    public function autorizacijaa()
-    {
-        if(!isset($_POST['email']) || 
-        !isset($_POST['lozinka'])){
-            $this->view->render('admin',[
-                'poruka'=>'Nisu postavljeni pristupni podaci',
-                'email' =>''
-            ]);
-            return;
-        }
-
-        if(trim($_POST['email'])==='' || 
-        trim($_POST['lozinka'])===''){
-            $this->view->render('admin',[
-                'poruka'=>'Pristupni podaci obavezno',
-                'email'=>$_POST['email']
-            ]);
-            return;
-        }
-        $veza = DB::getInstanca();
-        $izraz = $veza->prepare('select * from djelatnik 
-                      where email=:email;');
-        $izraz->execute(['email'=>$_POST['email']]);
-        //$rezultat=$izraz->fetch(PDO::FETCH_OBJ);
-        $rezultat=$izraz->fetch();
-        if($rezultat==null){
-            $this->view->render('admin',[
-                'poruka'=>'Ne postojeći korisnik',
-                'email'=>$_POST['email']
-            ]);
-            return;
-        }
-
-        if(!password_verify($_POST['lozinka'],$rezultat->lozinka)){
-            $this->view->render('admin',[
-                'poruka'=>'Neispravna kombinacija email i lozinka',
-                'email'=>$_POST['email']
-            ]);
-            return;
-        }
-        unset($rezultat->lozinka);
-        $_SESSION['operater']=$rezultat;
-        $npc = new NadzornaplocaController();
-        $npc->index();
-    }
-
     public function Info()
     {
         $this->view->render('Info');
@@ -173,5 +124,14 @@ class IndexController extends Controller
     public function kontakt()
     {
         $this->view->render('kontakt');
+    }
+    
+    public function test1()
+    {
+        $this->view->render('test1');
+    }
+    public function Katalog()
+    {
+        $this->view->render('Katalog');
     }
 }
