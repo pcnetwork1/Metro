@@ -1,0 +1,29 @@
+<form class="log-in-form" method="POST"
+action="/katalog/dodajnovi">
+ <label>Naziv
+    <input type="text" id="naziv" name="naziv" value="">
+  </label>
+  
+  <label>Barcode
+    <input type="number" id="barcode" name="barcode" value="">
+  </label>
+
+  <label>Kategorija
+    <input type="text" id="kategorija" name="kategorija" value="">
+  </label>
+
+
+
+
+  <div class="grid-x grid-margin-x">
+    <div class="large-6 cell">
+      <a href="/predavac/index" 
+      class="alert button expanded">Odustani</a>
+    </div>
+    <div class="large-6 cell">
+      <input type="submit" class="button expanded" 
+      value="Dodaj proizvod"></input>
+    </div>
+  </div>
+</form>
+<?php echo $poruka; ?>

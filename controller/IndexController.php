@@ -77,10 +77,6 @@ class IndexController extends Controller
 
 
     }
-    public function onama()
-    {
-        $this->view->render('onama');
-    }
 
     public function error404()
     {
@@ -129,9 +125,5 @@ class IndexController extends Controller
     public function test1()
     {
         $this->view->render('test1');
-    }
-    public function Katalog()
-    {
-        $this->view->render('Katalog');
     }
 }

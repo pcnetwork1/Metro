@@ -13,11 +13,11 @@ class View
     {
         ob_start(); //ne šalji prema klijentu, nego bufferiraj
         extract($parametri);
-        include BP . 'view' . DIRECTORY_SEPARATOR 
+        include BP . 'View' . DIRECTORY_SEPARATOR 
         . $stranica . '.phtml';
         $sadrzaj = ob_get_clean(); //sve što si skupio dodjeli varijabli $sadrzaj
 
-        include BP . 'view' . DIRECTORY_SEPARATOR 
+        include BP . 'View' . DIRECTORY_SEPARATOR 
         . $this->layout . '.phtml';
     }
 
